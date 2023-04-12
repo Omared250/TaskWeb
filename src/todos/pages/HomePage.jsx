@@ -1,5 +1,5 @@
 
-const HomePage = () => {
+export const HomePage = () => {
 
     return (
         <>
