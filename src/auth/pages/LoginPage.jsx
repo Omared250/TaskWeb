@@ -1,10 +1,11 @@
+import { Typography } from "@mui/material";
 
 
 export const LoginPage = () => {
 
     return (
         <>
-            <h1>Loging page</h1>
+            <Typography>Loging page</Typography>
         </>
     );
 }

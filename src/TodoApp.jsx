@@ -1,10 +1,13 @@
 import { AppRouter } from "./router/AppRouter";
+import { AppTheme } from "./theme/AppTheme";
 
 export default function TodoApp() {
 
     return (
         <>
-            <AppRouter />
+            <AppTheme>
+                <AppRouter />
+            </AppTheme>
         </>
     );
 
