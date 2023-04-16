@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 
+const drawerWidth = 240;
 
 export const TodoLayout = ({ children }) => {
     return(
@@ -15,7 +16,7 @@ export const TodoLayout = ({ children }) => {
                 {/* ToolBar */}
 
                 { children }
-                
+
             </Box>
         </Box>
     );
