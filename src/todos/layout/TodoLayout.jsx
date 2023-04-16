@@ -1,7 +1,7 @@
-import { Box } from "@mui/material";
-import { NavBar } from "../components/NavBar";
+import { Box, Toolbar } from "@mui/material";
+import { NavBar, SideBar } from "../components";
 
-const drawerWidth = 240;
+const drawerWidth = 280;
 
 export const TodoLayout = ({ children }) => {
     return(
@@ -9,12 +9,12 @@ export const TodoLayout = ({ children }) => {
 
             <NavBar drawerWidth={ drawerWidth }/>
 
-            {/* Sidebar */}
+            <SideBar drawerWidth={ drawerWidth }/>
 
             <Box component='main'
                 sx={{ flexGrow: 1, p: 3 }}
             >
-                {/* ToolBar */}
+                <Toolbar></Toolbar>
 
                 { children }
 
