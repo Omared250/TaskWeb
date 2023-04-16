@@ -7,7 +7,7 @@ export const TodoLayout = ({ children }) => {
     return(
         <Box sx={{ display: 'flex' }}>
 
-            <NavBar />
+            <NavBar drawerWidth={ drawerWidth }/>
 
             {/* Sidebar */}
 
