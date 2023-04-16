@@ -38,7 +38,6 @@ export const TaskView = () => {
                     placeholder='What do you want to Task?'
                     label='Task'
                     minRows={ 5 }
-                    sx={{ border: 'none', mb: 1 }}
                 />
             </Grid>
         </Grid>
