@@ -1,5 +1,6 @@
+import { Link as RouterLink } from 'react-router-dom';
 import { Create, LoginOutlined } from "@mui/icons-material";
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, Grid, Link, Typography } from "@mui/material";
 
 export const HomePage = () => {
 
@@ -42,12 +43,16 @@ export const HomePage = () => {
                     >
                         <Grid item xs={ 12 } sm={ 6 } >
                             <Button variant="contained" fullWidth startIcon={ <LoginOutlined /> } >
-                                Sign In
+                                <Link component={ RouterLink } sx={{ color: 'white', textDecoration: 'none' }} to="/auth/login">
+                                    Sign In
+                                </Link>
                             </Button>
                         </Grid>
                         <Grid item xs={ 12 } sm={ 6 }>
                             <Button variant="contained" fullWidth startIcon={ <Create /> } >
-                                Sign Up
+                                <Link component={ RouterLink } sx={{ color: 'white', textDecoration: 'none' }} to="/auth/register">
+                                    Sign Up
+                                </Link>
                             </Button>
                         </Grid>
                     </Grid>
