@@ -13,7 +13,11 @@ export const HomePage = () => {
                 direction='column'
                 justifyContent='center'
                 alignContent='center'
-                sx={{ minHeight: '100vh', backgroundImage: `url(${"/src/assets/Taskhome.png"})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                sx={{
+                    minHeight: '100vh', backgroundImage: `url(${"/src/assets/Taskhome.png"})`, 
+                    backgroundSize: 'cover', backgroundPosition: 'center', backgroundSize: '90% 120%',
+                    backgroundRepeat: 'no-repeat'
+                }}
 
             >
                 <Grid container

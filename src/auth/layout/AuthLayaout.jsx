@@ -13,7 +13,10 @@ export const AuthLayaout = ({ children, title = '' }) => {
                 direction="column"
                 alignContent="center"
                 justifyContent="center"
-                sx={{ backgroundImage: `url(${"/src/assets/backwebsite.png"})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                sx={{
+                    backgroundImage: `url(${"/src/assets/backwebsite.png"})`, backgroundSize: '90% 100%', 
+                    backgroundPosition: 'center', backgroundRepeat: 'no-repeat'
+                }}
             >
                 <Grid item
                     className="box-shadow"

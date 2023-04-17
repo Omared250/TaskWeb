@@ -3,11 +3,18 @@ import { HomePage, TodoPage } from "../pages";
 
 
 export const TodosRoutes = () => {
+    
+    const authState = 'no-authenticated';
+
     return (
         <Routes>
-            <Route path="/" element={ <HomePage /> } />
-            <Route path="todos" element={ <TodoPage /> } />
-            <Route path="/*" element={ <Navigate to="/" /> } />
+            {
+                (authState === 'no-authenticated')
+                ? <Route path="/" element={ <HomePage /> } />
+                : <Route path="/todos" element={ <TodoPage /> } />
+            }
+
+            <Route path="/*" element={ <Navigate to="/auth/login" /> } />
         </Routes>
     );
 }
