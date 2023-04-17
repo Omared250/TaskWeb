@@ -42,18 +42,18 @@ export const HomePage = () => {
                         sx={{ mb: 2, mt: 1 }}
                     >
                         <Grid item xs={ 12 } sm={ 6 } >
-                            <Button variant="contained" fullWidth startIcon={ <LoginOutlined /> } >
-                                <Link component={ RouterLink } sx={{ color: 'white', textDecoration: 'none' }} to="/auth/login">
-                                    Sign In
-                                </Link>
-                            </Button>
+                            <Link component={ RouterLink } sx={{ color: 'white', textDecoration: 'none' }} to="/auth/login">
+                                <Button variant="contained" fullWidth startIcon={ <LoginOutlined /> } >
+                                        Sign In
+                                </Button>
+                            </Link>
                         </Grid>
                         <Grid item xs={ 12 } sm={ 6 }>
-                            <Button variant="contained" fullWidth startIcon={ <Create /> } >
-                                <Link component={ RouterLink } sx={{ color: 'white', textDecoration: 'none' }} to="/auth/register">
+                            <Link component={ RouterLink } sx={{ color: 'white', textDecoration: 'none' }} to="/auth/register">
+                                <Button variant="contained" fullWidth startIcon={ <Create /> } >
                                     Sign Up
-                                </Link>
-                            </Button>
+                                </Button>
+                            </Link>
                         </Grid>
                     </Grid>
                 </Grid>

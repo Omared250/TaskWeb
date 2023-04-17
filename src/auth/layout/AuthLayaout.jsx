@@ -1,4 +1,6 @@
-import { Grid, Typography } from "@mui/material"
+import { Link as RouterLink } from 'react-router-dom';
+import { HomeOutlined } from "@mui/icons-material"
+import { Grid, IconButton, Link, Typography } from "@mui/material"
 
 export const AuthLayaout = ({ children, title = '' }) => {
     return (
@@ -16,10 +18,24 @@ export const AuthLayaout = ({ children, title = '' }) => {
                 sx={{ width: { sm: 500 }, backgroundColor: 'white', padding: 3, borderRadius: 2 }}
             >
                 <Typography variant="h5" sx={{ mb: 1 }}>{ title }</Typography>
-
-                { children }
+                { children  }
 
             </Grid>
+            <Link component={ RouterLink } to="/">
+                <IconButton
+                    size='large'
+                    sx={{
+                        color: 'white',
+                        backgroundColor: 'secondary.main',
+                        ':hover': { backgroundColor: 'secondary.main', opacity: 0.9 },
+                        position: 'fixed',
+                        right: 50,
+                        bottom: 50,
+                    }}
+                >
+                    <HomeOutlined sx={{ fontSize: 30 }}/>
+                </IconButton>
+            </Link>
         </Grid>
     )
 }
