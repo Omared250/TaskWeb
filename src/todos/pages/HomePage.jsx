@@ -6,18 +6,19 @@ export const HomePage = () => {
 
     return (
         <Grid container
-            sx={{ minHeight: '100vh', backgroundImage: `url(${"/src/assets/back.jpg"})`, backgroundSize: 'cover' }}
+            sx={{ backgroundColor: 'rgba(35, 8, 8, 0.4)' }}
         >
             <Grid container
                 spacing={ 0 }
                 direction='column'
                 justifyContent='center'
                 alignContent='center'
-                sx={{ backgroundColor: 'rgba(35, 8, 8, 0.4)' }}
+                sx={{ minHeight: '100vh', backgroundImage: `url(${"/src/assets/Taskhome.png"})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+
             >
                 <Grid container
                     className="box-shadow"
-                    sx={{ width: { sm: 500 }, backgroundColor:'rgba(255,255,255,0.7)', padding: 3, borderRadius: 2, mb: 2, mt: 1 }}
+                    sx={{ width: { sm: 500 }, backgroundColor:'rgba(255,255,255,0.9)', padding: 3, borderRadius: 2, mb: 2, mt: 1 }}
                 >
                     <Grid container
                         justifyContent='center'

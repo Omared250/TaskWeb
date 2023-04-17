@@ -6,20 +6,24 @@ export const AuthLayaout = ({ children, title = '' }) => {
     return (
         <Grid
             container
-            spacing={ 0 }
-            direction="column"
-            alignContent="center"
-            justifyContent="center"
-            sx={{ minHeight: '100vh', backgroundColor: 'primary.main', padding: 4 }}
+            sx={{ minHeight: '100vh', backgroundColor: 'rgba(35, 8, 8, 0.4)', padding: 2}}
         >
-            <Grid item
-                className="box-shadow"
-                xs={ 3 }
-                sx={{ width: { sm: 500 }, backgroundColor: 'white', padding: 3, borderRadius: 2 }}
+            <Grid container
+                spacing={ 0 }
+                direction="column"
+                alignContent="center"
+                justifyContent="center"
+                sx={{ backgroundImage: `url(${"/src/assets/backwebsite.png"})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}
             >
-                <Typography variant="h5" sx={{ mb: 1 }}>{ title }</Typography>
-                { children  }
+                <Grid item
+                    className="box-shadow"
+                    xs={ 3 }
+                    sx={{ width: { sm: 500 }, backgroundColor: 'white', padding: 3, borderRadius: 2 }}
+                >
+                    <Typography variant="h5" sx={{ mb: 1 }}>{ title }</Typography>
+                    { children  }
 
+                </Grid>
             </Grid>
             <Link component={ RouterLink } to="/">
                 <IconButton
