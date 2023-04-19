@@ -57,7 +57,7 @@ export const CalendarView = () => {
                 defaultView={ lastView }
                 startAccessor="start"
                 endAccessor="end"
-                style={{ height: 'calc(100vh - 100px)' }}
+                style={{ height: 'calc(100vh - 150px)' }}
                 eventPropGetter={ eventStyleGetter }
                 components={{
                     event: CalendarEventBox
