@@ -7,7 +7,7 @@ import { NothingSelectedView, TaskView } from "../views";
 export const TodoPage = () => {
     return (
         <TodoLayout>
-            <NothingSelectedView />
+            {/* <NothingSelectedView /> */}
             {/* <TaskView /> */}
 
             <IconButton

@@ -1,6 +1,6 @@
-import { TurnedInNot } from "@mui/icons-material";
+import { CalendarMonthOutlined, TurnedInNot } from "@mui/icons-material";
 import List from '@mui/material/List';
-import { Box, Divider, Drawer, Grid, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material";
+import { Box, Divider, Drawer, Grid, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material";
 
 
 export const SideBar = ({ drawerWidth }) => {
@@ -18,6 +18,9 @@ export const SideBar = ({ drawerWidth }) => {
                 }}
             >
                 <Toolbar>
+                    <IconButton sx={{ mr: 2, color: 'black' }}>
+                        <CalendarMonthOutlined/>
+                    </IconButton>
                     <Typography variant='h6' noWrap component='div'>
                         Omar Ascanio
                     </Typography>

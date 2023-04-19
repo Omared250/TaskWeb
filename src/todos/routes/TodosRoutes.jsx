@@ -4,7 +4,7 @@ import { HomePage, TodoPage } from "../pages";
 
 export const TodosRoutes = () => {
     
-    const authState = 'no-authenticated';
+    const authState = 'authenticated';
 
     return (
         <Routes>
