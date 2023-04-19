@@ -1,19 +1,8 @@
-import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
+import { Calendar } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import enUS from 'date-fns/locale/en-US';
-import { addHours, format, parse, startOfWeek, getDay } from 'date-fns';
 
-const locales = {
-    'en-US': enUS,
-};
-
-const localizer = dateFnsLocalizer({
-    format,
-    parse,
-    startOfWeek,
-    getDay,
-    locales,
-});
+import { addHours } from 'date-fns';
+import { localizer } from '../../helpers';
 
 const events = [{
     title: 'Omar birthday',
@@ -28,14 +17,30 @@ const events = [{
 }];
 
 export const CalendarView = () => {
+
+    const eventStyleGetter = ( event, start, end, isSelected ) => {
+
+        const style = {
+            backgroundColor: '#347CF7',
+            borderRadius: '0px',
+            opacity: 0.8,
+            color: 'white'        
+        };
+
+        return {
+            style
+        }
+    };
+
     return(
         <>
             <Calendar
-                localizer={localizer}
+                localizer={ localizer }
                 events={ events }
                 startAccessor="start"
                 endAccessor="end"
                 style={{ height: 'calc(100vh - 100px)' }}
+                eventPropGetter={ eventStyleGetter }
             />
         </>
     );
