@@ -3,6 +3,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 import { addHours } from 'date-fns';
 import { localizer } from '../../helpers';
+import { CalendarEventBox } from '../components';
 
 const events = [{
     title: 'Omar birthday',
@@ -41,6 +42,9 @@ export const CalendarView = () => {
                 endAccessor="end"
                 style={{ height: 'calc(100vh - 100px)' }}
                 eventPropGetter={ eventStyleGetter }
+                components={{
+                    event: CalendarEventBox
+                }}
             />
         </>
     );
