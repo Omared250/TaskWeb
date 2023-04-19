@@ -18,9 +18,7 @@ export const SideBar = ({ drawerWidth }) => {
                 }}
             >
                 <Toolbar>
-                    <IconButton sx={{ mr: 2, color: 'black' }}>
-                        <CalendarMonthOutlined/>
-                    </IconButton>
+                    <CalendarMonthOutlined sx={{ mr: 1 }}/>
                     <Typography variant='h6' noWrap component='div'>
                         Omar Ascanio
                     </Typography>
