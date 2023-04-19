@@ -2,6 +2,7 @@ import { IconButton } from "@mui/material";
 import { AddOutlined } from "@mui/icons-material";
 import { TodoLayout } from "../layout/TodoLayout";
 import { NothingSelectedView, TaskView } from "../views";
+import { CalendarView } from "../views/CalendarView";
 
 
 export const TodoPage = () => {
@@ -9,6 +10,7 @@ export const TodoPage = () => {
         <TodoLayout>
             {/* <NothingSelectedView /> */}
             {/* <TaskView /> */}
+            <CalendarView />
         </TodoLayout>
     );
 }
