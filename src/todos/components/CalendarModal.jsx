@@ -9,6 +9,7 @@ import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 
 import { useCalendarStore, useUiStore } from "../../hooks";
+import { SaveOutlined } from "@mui/icons-material";
 
 const customStyles = {
     content: {
@@ -27,7 +28,7 @@ export const CalendarModal = () => {
 
     const { isDateModalOpen, closeDateModal } = useUiStore();
 
-    const { activeEvent } = useCalendarStore();
+    const { activeEvent, startSavingEvent } = useCalendarStore();
 
     const [formSubmitted, setFormSubmitted] = useState( false ); 
 
@@ -74,7 +75,7 @@ export const CalendarModal = () => {
         closeDateModal();
     };
 
-    const onSubmit = ( event ) => {
+    const onSubmit = async( event ) => {
         event.preventDefault();
         setFormSubmitted(true);
 
@@ -88,6 +89,10 @@ export const CalendarModal = () => {
         if ( formValues.title.length <= 0 ) return;
 
         console.log({ formValues });
+
+        await startSavingEvent( formValues );
+        closeDateModal();
+        setFormSubmitted(false);
     };
 
     return (
@@ -158,7 +163,7 @@ export const CalendarModal = () => {
                     type="submit"
                     className="btn btn-outline-primary btn-block"
                 >
-                    <i className="far fa-save"></i>
+                    <SaveOutlined fontSize="small" sx={{ mr: 1 }}></SaveOutlined>
                     <span>Save</span>
                 </button>
 
