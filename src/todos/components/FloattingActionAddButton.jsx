@@ -3,7 +3,7 @@ import { IconButton } from "@mui/material"
 import { useCalendarStore, useUiStore } from "../../hooks"
 import { addHours } from "date-fns";
 
-export const FloattingActionButton = () => {
+export const FloattingActionAddButton = () => {
 
     const { openDateModal } = useUiStore();
     const { setActiveEvent } = useCalendarStore();
