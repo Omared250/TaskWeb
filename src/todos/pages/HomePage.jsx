@@ -14,8 +14,8 @@ export const HomePage = () => {
                 justifyContent='center'
                 alignContent='center'
                 sx={{
-                    minHeight: '100vh', backgroundImage: `url(${"/src/assets/Taskhome.png"})`, 
-                    backgroundSize: 'cover', backgroundPosition: 'center', backgroundSize: '90% 120%',
+                    minHeight: '100vh', backgroundImage: `url(${"/src/assets/Taskhome.png"})`,
+                    backgroundPosition: 'center', backgroundSize: '90% 120%',
                     backgroundRepeat: 'no-repeat'
                 }}
 
