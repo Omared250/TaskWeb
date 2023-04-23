@@ -5,6 +5,7 @@ import { addHours } from 'date-fns';
 import { localizer } from '../../helpers';
 import { CalendarEventBox, CalendarModal } from '../components';
 import { useState } from 'react';
+import { useUiStore } from '../../hooks';
 
 const events = [{
     title: 'Omar birthday',
@@ -19,6 +20,8 @@ const events = [{
 }];
 
 export const CalendarView = () => {
+
+    const { openDateModal } = useUiStore();
 
     const [lastView, setLastView] = useState( localStorage.getItem('lastView') || 'week' )
 
@@ -36,8 +39,8 @@ export const CalendarView = () => {
         }
     };
 
-    const onDoubleClick = ( event ) => {
-        console.log({ doubleClick: event });
+    const onDoubleClick = () => {
+        openDateModal();
     };    
     
     const onSelect = ( event ) => {

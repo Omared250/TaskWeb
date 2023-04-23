@@ -5,15 +5,15 @@ import { createSlice } from '@reduxjs/toolkit';
 export const uiSlice = createSlice({
     name: 'ui',
     initialState: {
-        isDateModalOpene: false
+        isDateModalOpen: false
     },
     reducers: {
         onOpenDateModal: ( state ) => {
-            state.isDateModalOpene = true;
+            state.isDateModalOpen = true;
         },
 
         onCloseDateModal: ( state ) => {
-            state.isDateModalOpene = false;
+            state.isDateModalOpen = false;
         }
     }
 });
