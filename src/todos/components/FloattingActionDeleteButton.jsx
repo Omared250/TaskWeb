@@ -1,6 +1,6 @@
 import { DeleteOutline } from "@mui/icons-material"
 import { IconButton } from "@mui/material"
-import { useCalendarStore, useUiStore } from "../../hooks"
+import { useCalendarStore } from "../../hooks"
 
 export const FloattingActionDeleteButton = () => {
 
