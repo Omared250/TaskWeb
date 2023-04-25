@@ -59,17 +59,19 @@ export const LoginPage = () => {
                         sx={{ mb: 2, mt: 1 }}
                     >
                         <Grid item xs={ 12 }>
-                            <button
-                                style={ { 
-                                    width: '100%', 
-                                    backgroundColor: '#6096B4', 
-                                    borderRadius: '10px',
-                                    padding: '1.5%',
-                                    border: 'none', 
-                                } }
-                            >
-                                Login
-                            </button>
+                            <Link component={ RouterLink } to='/todos'>
+                                <button
+                                    style={ { 
+                                        width: '100%', 
+                                        backgroundColor: '#6096B4', 
+                                        borderRadius: '10px',
+                                        padding: '1.5%',
+                                        border: 'none', 
+                                    } }
+                                >
+                                    Login
+                                </button>
+                            </Link>
                             {/* <Link component={ RouterLink } to='/todos'> */}
                                 {/* <Button onClick={ loginSubmit } variant="contained" fullWidth>
                                     Login
