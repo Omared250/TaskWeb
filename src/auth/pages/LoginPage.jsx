@@ -59,7 +59,7 @@ export const LoginPage = () => {
                         sx={{ mb: 2, mt: 1 }}
                     >
                         <Grid item xs={ 12 }>
-                            <Link component={ RouterLink } to='/todos'>
+                            {/* <Link component={ RouterLink } to='/todos'> */}
                                 <button
                                     style={ { 
                                         width: '100%', 
@@ -71,7 +71,7 @@ export const LoginPage = () => {
                                 >
                                     Login
                                 </button>
-                            </Link>
+                            {/* </Link> */}
                             {/* <Link component={ RouterLink } to='/todos'> */}
                                 {/* <Button onClick={ loginSubmit } variant="contained" fullWidth>
                                     Login

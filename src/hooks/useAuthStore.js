@@ -30,7 +30,6 @@ export const useAuthStore = () => {
 
         dispatch( onChecking() );
         try {
-
             const { data } = await calendarApi.post('/auth/new', { email, password, name })
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime());
@@ -47,9 +46,7 @@ export const useAuthStore = () => {
     const checkAuthToken = async() => {
 
         const token = localStorage.getItem('token');
-        if (!token) {
-            return dispatch( onLogout('Token expired') );
-        }
+        if (!token) return dispatch( onLogout('Token expired') );
 
         try {
             const { data } = await calendarApi.get('/auth/renew');
@@ -71,8 +68,8 @@ export const useAuthStore = () => {
 
 
         //* Methods
+        checkAuthToken,
         startLogin,
         starRegister,
-        checkAuthToken,
     }
 };
