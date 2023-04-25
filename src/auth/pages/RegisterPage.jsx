@@ -1,7 +1,9 @@
 import { Link as RouterLink } from 'react-router-dom';
 import { Button, Grid, Link, TextField, Typography } from "@mui/material";
 import { AuthLayaout } from '../layout/AuthLayaout';
-import { useForm } from '../../hooks';
+import { useAuthStore, useForm } from '../../hooks';
+import Swal from 'sweetalert2';
+import { useEffect } from 'react';
 
 const registerFormFields = {
     registerName: '',
@@ -12,12 +14,24 @@ const registerFormFields = {
 
 export const RegisterPage = () => {
 
+    const { starRegister, errorMessage } = useAuthStore();
+
     const { registerName, registerEmail, registerPassword, registerPassword2, onInputChange } = useForm( registerFormFields );
 
     const registerSubmit = ( event ) => {
         event.preventDefault();
-        console.log({ registerEmail, registerName, registerPassword, registerPassword2 });
+        if ( registerPassword !== registerPassword2 ) {
+            Swal.fire('Error at regsiter level', 'Passwords do not match', 'error')
+            return;
+        }
+        starRegister({ email: registerEmail, name: registerName, password: registerPassword });
     };
+
+    useEffect(() => {
+        if ( errorMessage !== undefined ) {
+          Swal.fire('error in the authentication', errorMessage, 'error');
+        }
+    }, [ errorMessage ])
 
     return (
         <AuthLayaout title='Sign Up'>
