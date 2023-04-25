@@ -3,14 +3,14 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 import { localizer } from '../../helpers';
 import { CalendarEventBox, CalendarModal, FloattingActionAddButton, FloattingActionDeleteButton } from '../components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useUiStore, useCalendarStore } from '../../hooks';
 
 
 export const CalendarView = () => {
 
     const { openDateModal } = useUiStore();
-    const { events, setActiveEvent } = useCalendarStore();
+    const { events, setActiveEvent, startLoadingEvents } = useCalendarStore();
 
     const [ lastView, setLastView ] = useState( localStorage.getItem('lastView') || 'week' )
 
@@ -40,6 +40,11 @@ export const CalendarView = () => {
         localStorage.setItem( 'lastView', event );
         setLastView( event );
     };
+
+    useEffect(() => {
+        startLoadingEvents();
+    }, [])
+    
 
     return(
         <>
