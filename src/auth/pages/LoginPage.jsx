@@ -1,19 +1,34 @@
 import { Link as RouterLink } from 'react-router-dom';
 import { Button, Grid, Link, TextField } from "@mui/material";
 import { AuthLayaout } from '../layout/AuthLayaout';
+import { useForm } from '../../hooks';
 
+const loginFormFields = {
+    loginEmail: '',
+    loginPassword: ''
+};
 
 export const LoginPage = () => {
 
+    const { loginEmail, loginPassword, onInputChange } = useForm( loginFormFields );
+
+    const loginSubmit = ( event ) => {
+        event.preventDefault();
+        console.log({ loginEmail, loginPassword });
+    };
+
     return (
         <AuthLayaout title='Login'>
-            <form>
+            <form onSubmit={ loginSubmit }>
                 <Grid container>
                     <Grid item xs={ 12 } sx={{ mt: 2 }}>
                         <TextField 
                             label="Email" 
                             type="email" 
                             placeholder="example@email.com"
+                            name='loginEmail'
+                            value={ loginEmail }
+                            onChange={ onInputChange }
                             fullWidth
                         />
                     </Grid>
@@ -22,6 +37,9 @@ export const LoginPage = () => {
                             label="Password" 
                             type="password" 
                             placeholder="Password"
+                            name='loginPassword'
+                            value={ loginPassword }
+                            onChange={ onInputChange }
                             fullWidth
                         />
                     </Grid>
@@ -30,11 +48,22 @@ export const LoginPage = () => {
                         sx={{ mb: 2, mt: 1 }}
                     >
                         <Grid item xs={ 12 }>
-                            <Link component={ RouterLink } to='/todos'>
-                                <Button variant="contained" fullWidth>
+                            <button
+                                style={ { 
+                                    width: '100%', 
+                                    backgroundColor: '#6096B4', 
+                                    borderRadius: '10px',
+                                    padding: '1.5%',
+                                    border: 'none', 
+                                } }
+                            >
+                                Login
+                            </button>
+                            {/* <Link component={ RouterLink } to='/todos'> */}
+                                {/* <Button onClick={ loginSubmit } variant="contained" fullWidth>
                                     Login
-                                </Button>
-                            </Link>
+                                </Button> */}
+                            {/* </Link> */}
                         </Grid>
                     </Grid>
                     <Grid container
