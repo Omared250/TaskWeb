@@ -28,7 +28,7 @@ export const AuthLayaout = ({ children, title = '' }) => {
 
                 </Grid>
             </Grid>
-            <Link component={ RouterLink } to="/">
+            {/* <Link component={ RouterLink } to="/">
                 <IconButton
                     size='large'
                     sx={{
@@ -42,7 +42,7 @@ export const AuthLayaout = ({ children, title = '' }) => {
                 >
                     <HomeOutlined sx={{ fontSize: 30 }}/>
                 </IconButton>
-            </Link>
+            </Link> */}
         </Grid>
     )
 }
