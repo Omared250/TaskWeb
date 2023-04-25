@@ -4,11 +4,12 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { localizer } from '../../helpers';
 import { CalendarEventBox, CalendarModal, FloattingActionAddButton, FloattingActionDeleteButton } from '../components';
 import { useEffect, useState } from 'react';
-import { useUiStore, useCalendarStore } from '../../hooks';
+import { useUiStore, useCalendarStore, useAuthStore } from '../../hooks';
 
 
 export const CalendarView = () => {
 
+    const { user } = useAuthStore();
     const { openDateModal } = useUiStore();
     const { events, setActiveEvent, startLoadingEvents } = useCalendarStore();
 
@@ -16,8 +17,10 @@ export const CalendarView = () => {
 
     const eventStyleGetter = ( event, start, end, isSelected ) => {
 
+        const isMyEvent = ( user.uid === event.user._id ) || ( user.uid === event.user.uid );
+
         const style = {
-            backgroundColor: '#347CF7',
+            backgroundColor: isMyEvent ? '#347CF7' : '#FC5834',
             borderRadius: '0px',
             opacity: 0.8,
             color: 'white'        
