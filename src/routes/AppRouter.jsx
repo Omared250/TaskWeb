@@ -1,6 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { HomePage, TodoPage } from "../todos/pages";
-import { LoginPage } from "../auth/pages";
+import { TodoPage } from "../todos/pages";
 import { useEffect } from "react";
 import { useAuthStore } from "../hooks";
 import { AuthRouter } from "../auth/routes/AuthRouter";
@@ -31,7 +30,7 @@ export const AppRouter = () => {
                 ? <Route path="/auth/*" element={ <AuthRouter /> } />
                 : <Route path="/*" element={ <TodoPage /> } />
             }
-            {/* <Route path="/*" element={ <Navigate to="/auth/login" /> } /> */}
+            <Route path="/*" element={ <Navigate to="/auth/login" /> } />
         </Routes>
     )
 

@@ -1,8 +1,12 @@
 import { LogoutOutlined, MenuOutlined } from "@mui/icons-material";
 import { AppBar, Grid, IconButton, Toolbar, Typography } from "@mui/material";
+import { useAuthStore } from "../../hooks";
 
 
 export const NavBar = ({ drawerWidth = 240 }) => {
+
+    const { startLogout } = useAuthStore();
+
     return (
         <AppBar position="fixed"
             sx={{ 
@@ -26,7 +30,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
                 >
                     <Typography variant='h6' noWrap component='div'>To Do</Typography>
 
-                    <IconButton color='inherit'>
+                    <IconButton color='inherit' onClick={ startLogout }>
                         <LogoutOutlined />
                     </IconButton>
                 </Grid>

@@ -1,9 +1,13 @@
 import { CalendarMonthOutlined, TurnedInNot } from "@mui/icons-material";
 import List from '@mui/material/List';
 import { Box, Divider, Drawer, Grid, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material";
+import { useAuthStore } from "../../hooks";
 
 
 export const SideBar = ({ drawerWidth }) => {
+
+    const { user } = useAuthStore();
+
     return (
         <Box
             component='nav'
@@ -20,7 +24,7 @@ export const SideBar = ({ drawerWidth }) => {
                 <Toolbar>
                     <CalendarMonthOutlined sx={{ mr: 1 }}/>
                     <Typography variant='h6' noWrap component='div'>
-                        Omar Ascanio
+                        { user.name }
                     </Typography>
                 </Toolbar>
                 <Divider />
