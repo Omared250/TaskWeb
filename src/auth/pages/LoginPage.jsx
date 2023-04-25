@@ -2,6 +2,8 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Button, Grid, Link, TextField } from "@mui/material";
 import { AuthLayaout } from '../layout/AuthLayaout';
 import { useAuthStore, useForm } from '../../hooks';
+import { useEffect } from 'react';
+import Swal from 'sweetalert2';
 
 const loginFormFields = {
     loginEmail: '',
@@ -10,7 +12,7 @@ const loginFormFields = {
 
 export const LoginPage = () => {
 
-    const { startLogin } = useAuthStore();
+    const { startLogin, errorMessage } = useAuthStore();
 
     const { loginEmail, loginPassword, onInputChange } = useForm( loginFormFields );
 
@@ -18,6 +20,13 @@ export const LoginPage = () => {
         event.preventDefault();
         startLogin({ email: loginEmail, password: loginPassword });
     };
+
+    useEffect(() => {
+      if ( errorMessage !== undefined ) {
+        Swal.fire('error in the authentication', errorMessage, 'error');
+      }
+    }, [ errorMessage ])
+    
 
     return (
         <AuthLayaout title='Login'>
