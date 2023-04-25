@@ -1,7 +1,7 @@
 import { Link as RouterLink } from 'react-router-dom';
 import { Button, Grid, Link, TextField } from "@mui/material";
 import { AuthLayaout } from '../layout/AuthLayaout';
-import { useForm } from '../../hooks';
+import { useAuthStore, useForm } from '../../hooks';
 
 const loginFormFields = {
     loginEmail: '',
@@ -10,11 +10,13 @@ const loginFormFields = {
 
 export const LoginPage = () => {
 
+    const { startLogin } = useAuthStore();
+
     const { loginEmail, loginPassword, onInputChange } = useForm( loginFormFields );
 
     const loginSubmit = ( event ) => {
         event.preventDefault();
-        console.log({ loginEmail, loginPassword });
+        startLogin({ email: loginEmail, password: loginPassword });
     };
 
     return (
