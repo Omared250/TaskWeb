@@ -80,7 +80,7 @@ export const useSignStore = () => {
 
 ## Project Configuration
 
-If you want to test the application on your local machine keep in mind that inside the CalendarApi.js Axios is calling an Environment Variable that for security reasons is not recommended to be updated in the repository files. security reasons it is not recommended to upload in the repository files so in order to run the project locally in good form you must create outside the SRC folder a file called .env where you can create this environment variable VITE_API_URL and assign the value to the port you prefer then the application will work in normal state.
+If you want to test the application on your local machine keep in mind that inside the CalendarApi.js Axios is calling an Environment Variable that for security reasons is not recommended to be updated in the repository files. security reasons it is not recommended to upload in the repository files so in order to run the project locally in good form you must create outside the SRC folder a file called .env where you can create this environment variable VITE_API_URL and assign the value to the URL where your BACKEND is listening then the application will work in normal state. Also do not forget to download the Backend repository of this project [HERE](https://github.com/Omared250/TodoWeb-Backend)
 
 ## Author
 
