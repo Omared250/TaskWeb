@@ -12,9 +12,9 @@ export const Testimonials = () => {
       </div>
 
       <div className="slider">
-        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item">
+        <div id="carouselExample" className="carousel slide" data-bs-ride="carousel">
+          <div className="carousel-inner">
+            <div className="carousel-item">
               <div className="slide slide--1">
                 <div className="testimonial">
                   <h5 className="testimonial__header">I make a promise and record it in my Todoist so I can't forget.</h5>
@@ -30,7 +30,7 @@ export const Testimonials = () => {
                 </div>
               </div>
             </div>
-            <div class="carousel-item active">
+            <div className="carousel-item active">
               <div className="slide slide--2">
                 <div className="testimonial">
                   <h5 className="testimonial__header">
@@ -49,7 +49,7 @@ export const Testimonials = () => {
                 </div>
               </div>
             </div>
-            <div class="carousel-item">
+            <div className="carousel-item">
               <div className="slide slide--3">
                 <div className="testimonial">
                   <h5 className="testimonial__header">
@@ -70,80 +70,16 @@ export const Testimonials = () => {
               </div>
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+          <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
           </button>
         </div>
       </div>
     </section>
   )
 }
-
-{/* <div className="slide slide--1">
-<div className="testimonial">
-  <h5 className="testimonial__header">Best financial decision ever!</h5>
-  <blockquote className="testimonial__text">
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-    Accusantium quas quisquam non? Quas voluptate nulla minima
-    deleniti optio ullam nesciunt, numquam corporis et asperiores
-    laboriosam sunt, praesentium suscipit blanditiis. Necessitatibus
-    id alias reiciendis, perferendis facere pariatur dolore veniam
-    autem esse non voluptatem saepe provident nihil molestiae.
-  </blockquote>
-  <address className="testimonial__author">
-    <img src="/src/assets/user-1.jpg" alt="" className="testimonial__photo" />
-    <h6 className="testimonial__name">Aarav Lynn</h6>
-    <p className="testimonial__location">San Francisco, USA</p>
-  </address>
-</div>
-</div>
-
-<div className="slide slide--2" >
-<div className="testimonial">
-  <h5 className="testimonial__header">
-    The last step to becoming a complete minimalist
-  </h5>
-  <blockquote className="testimonial__text">
-    Quisquam itaque deserunt ullam, quia ea repellendus provident,
-    ducimus neque ipsam modi voluptatibus doloremque, corrupti
-    laborum. Incidunt numquam perferendis veritatis neque repellendus.
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo
-    deserunt exercitationem deleniti.
-  </blockquote>
-  <address className="testimonial__author">
-    <img src="/src/assets/user-2.jpg" alt="" className="testimonial__photo" />
-    <h6 className="testimonial__name">Miyah Miles</h6>
-    <p className="testimonial__location">London, UK</p>
-  </address>
-</div>
-</div>
-
-<div className="slide slide--3" >
-<div className="testimonial">
-  <h5 className="testimonial__header">
-    Finally free from old-school banks
-  </h5>
-  <blockquote className="testimonial__text">
-    Debitis, nihil sit minus suscipit magni aperiam vel tenetur
-    incidunt commodi architecto numquam omnis nulla autem,
-    necessitatibus blanditiis modi similique quidem. Odio aliquam
-    culpa dicta beatae quod maiores ipsa minus consequatur error sunt,
-    deleniti saepe aliquid quos inventore sequi. Necessitatibus id
-    alias reiciendis, perferendis facere.
-  </blockquote>
-  <address className="testimonial__author">
-    <img src="/src/assets/user-3.jpg" alt="" className="testimonial__photo" />
-    <h6 className="testimonial__name">Francisco Gomes</h6>
-    <p className="testimonial__location">Lisbon, Portugal</p>
-  </address>
-</div>
-</div>
-
-<button className="slider__btn slider__btn--left">&larr;</button>
-<button className="slider__btn slider__btn--right">&rarr;</button>
-<div className="dots"></div> */}
