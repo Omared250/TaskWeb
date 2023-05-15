@@ -1,8 +1,8 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { TodoPage } from "../todos/pages";
 import { useEffect } from "react";
 import { useAuthStore } from "../hooks";
-import { AuthRouter } from "../auth/routes/AuthRouter";
+import { PrivateRoutes } from "./PrivateRoutes";
+import { PublicRoutes } from "./PublicRoutes";
 
 
 export const AppRouter = () => {
@@ -26,11 +26,10 @@ export const AppRouter = () => {
     return(
         <Routes>
             {
-                ( status === 'no-authenticated' )
-                ? <Route path="/auth/*" element={ <AuthRouter /> } />
-                : <Route path="/*" element={ <TodoPage /> } />
+              ( status === 'authenticated' )
+              ? <Route path="/*" element={ <PrivateRoutes /> } />
+              : <Route path="/*" element={ <PublicRoutes /> } />
             }
-            <Route path="/*" element={ <Navigate to="/auth/login" /> } />
         </Routes>
     )
 
