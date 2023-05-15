@@ -163,7 +163,7 @@ export const CalendarModal = () => {
                     type="submit"
                     className="btn btn-outline-primary btn-block"
                 >
-                    <SaveOutlined fontSize="small" sx={{ mr: 1 }}></SaveOutlined>
+                    <SaveOutlined fontSize="large" sx={{ mr: 1 }}></SaveOutlined>
                     <span>Save</span>
                 </button>
 

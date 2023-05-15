@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { useAuthStore } from "../hooks";
 import { PrivateRoutes } from "./PrivateRoutes";

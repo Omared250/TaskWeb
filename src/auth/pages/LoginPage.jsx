@@ -1,9 +1,7 @@
-import { Link as RouterLink } from 'react-router-dom';
-import { Button, Grid, Link, TextField } from "@mui/material";
-import { AuthLayaout } from '../layout/AuthLayaout';
 import { useAuthStore, useForm } from '../../hooks';
 import { useEffect } from 'react';
 import Swal from 'sweetalert2';
+import { ModalLayout } from '../layout/ModalLayout';
 
 const loginFormFields = {
     loginEmail: '',
@@ -29,53 +27,28 @@ export const LoginPage = () => {
     
 
     return (
-        <AuthLayaout title='Login'>
-            <form onSubmit={ loginSubmit }>
-                <Grid container>
-                    <Grid item xs={ 12 } sx={{ mt: 2 }}>
-                        <TextField 
-                            label="Email" 
-                            type="email" 
-                            placeholder="example@email.com"
-                            name='loginEmail'
-                            value={ loginEmail }
-                            onChange={ onInputChange }
-                            fullWidth
-                        />
-                    </Grid>
-                    <Grid item xs={ 12 } sx={{ mt: 2 }}>
-                        <TextField 
-                            label="Password" 
-                            type="password" 
-                            placeholder="Password"
-                            name='loginPassword'
-                            value={ loginPassword }
-                            onChange={ onInputChange }
-                            fullWidth
-                        />
-                    </Grid>
-                    <Grid container
-                        spacing={ 2 }
-                        sx={{ mb: 2, mt: 1 }}
-                    >
-                        <Grid item xs={ 12 }>
-                            {/* <Link component={ RouterLink } to='/todos'> */}
-                                <button
-                                    style={ { 
-                                        width: '100%', 
-                                        backgroundColor: '#6096B4', 
-                                        borderRadius: '10px',
-                                        padding: '1.5%',
-                                        border: 'none', 
-                                    } }
-                                >
-                                    Login
-                                </button>
-                        </Grid>
-                    </Grid>
-                </Grid>
+        <ModalLayout title='Login'>
+            <form onSubmit={ loginSubmit } className='modal__form'>
+                <label>Email Address</label>
+                <input   
+                  label="Email" 
+                  type="email" 
+                  placeholder="example@email.com"
+                  name='loginEmail'
+                  value={ loginEmail }
+                  onChange={ onInputChange } />
+                <label>Password</label>
+                <input 
+                  label="Password" 
+                  type="password" 
+                  placeholder="Password"
+                  name='loginPassword'
+                  value={ loginPassword }
+                  onChange={ onInputChange }
+                />
+                <button className="btn">Next step &rarr;</button>
             </form>
-        </AuthLayaout>
+        </ModalLayout>
     );
 }
 
