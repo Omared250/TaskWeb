@@ -11,7 +11,8 @@ export const NavBar = ({ drawerWidth = 240 }) => {
         <AppBar position="fixed"
             sx={{ 
                 width: { sm: `calc(100% - ${ drawerWidth }px)` },
-                ml: { sm: `${ drawerWidth }px` }
+                ml: { sm: `${ drawerWidth }px` },
+                fontSize: 'large'
              }}
         >
             <Toolbar>
@@ -30,7 +31,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
                 >
                     <Typography variant='h6' noWrap component='div'>To Do</Typography>
 
-                    <IconButton color='inherit' onClick={ startLogout }>
+                    <IconButton color='inherit' onClick={ startLogout } >
                         <LogoutOutlined />
                     </IconButton>
                 </Grid>

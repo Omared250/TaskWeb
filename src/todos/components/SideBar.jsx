@@ -11,7 +11,7 @@ export const SideBar = ({ drawerWidth }) => {
     return (
         <Box
             component='nav'
-            sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+            sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }, fontSize: 'large' }}
         >
             <Drawer
                 variant='permanent' // temporary if i want to show it due to the screen size
