@@ -71,21 +71,7 @@ export const LoginPage = () => {
                                 >
                                     Login
                                 </button>
-                            {/* </Link> */}
-                            {/* <Link component={ RouterLink } to='/todos'> */}
-                                {/* <Button onClick={ loginSubmit } variant="contained" fullWidth>
-                                    Login
-                                </Button> */}
-                            {/* </Link> */}
                         </Grid>
-                    </Grid>
-                    <Grid container
-                        direction="row"
-                        justifyContent="end"
-                    >
-                        <Link component={ RouterLink } to="/auth/register">
-                            Create account
-                        </Link>
                     </Grid>
                 </Grid>
             </form>
