@@ -1,3 +1,6 @@
+import calendarPro from '/src/assets/Calendar-bro.png'
+import onlineCalendarPro from '/src/assets/Online calendar-bro.png'
+import organizingProjectsBro from '/src/assets/Organizing projects-bro.png'
 
 export const Features = () => {
 
@@ -12,7 +15,7 @@ export const Features = () => {
     
         <div className="features">
           <img
-            src="/src/assets/Calendar-bro.png"
+            src={ calendarPro }
             data-src="images/digital.jpg"
             alt="Calendar"
             className="features__img"
@@ -36,14 +39,14 @@ export const Features = () => {
             </p>
           </div>
           <img
-            src="/src/assets/Online calendar-bro.png"
+            src={ onlineCalendarPro }
             data-src="images/grow.jpg"
             alt="Calendar"
             className="features__img"
           />
     
           <img
-            src="/src/assets/Organizing projects-bro.png"
+            src={ organizingProjectsBro }
             data-src="images/card.jpg"
             alt="Calendar"
             className="features__img"

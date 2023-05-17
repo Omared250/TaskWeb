@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useSignStore } from "../../../hooks/useSignStore";
-
+import logoImg from '/src/assets/logo.png'
 
 export const Footer = () => {
 
@@ -44,7 +44,7 @@ export const Footer = () => {
               <a className="footer__link" href="#">Contact Us</a>
             </li>
           </ul>
-          <img src="/src/assets/logo.png" alt="Logo" className="footer__logo" />
+          <img src={ logoImg } alt="Logo" className="footer__logo" />
           <p className="footer__copyright">
             &copy; Copyright by
             <a

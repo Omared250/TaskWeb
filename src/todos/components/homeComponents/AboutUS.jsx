@@ -1,4 +1,4 @@
-
+import boardBro from '/src/assets/Scrum board-bro.png';
 
 export const AboutUS = () => {
   return (
@@ -12,7 +12,7 @@ export const AboutUS = () => {
         <h4>Get a clear overview of everything your team is working on - what's already been done and what's coming up next.</h4>
         <a className="btn--text btn--scroll-to" href="#section--1">Learn more</a>
         <img
-            src="/src/assets/Scrum board-bro.png"
+            src={ boardBro }
             className="header__img"
             alt="calendar items"
         />

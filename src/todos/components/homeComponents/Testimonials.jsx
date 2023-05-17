@@ -1,4 +1,8 @@
 
+import user1img from '/src/assets/user-1.jpg'
+import user2img from '/src/assets/user-2.jpg'
+import user3img from '/src/assets/user-3.jpg'
+
 export const Testimonials = () => {
 
 
@@ -23,7 +27,7 @@ export const Testimonials = () => {
                     Now, I make a promise and record it in my TaskWeb so I can't forget. My business is better because of it!
                   </blockquote>
                   <address className="testimonial__author">
-                    <img src="/src/assets/user-1.jpg" alt="" className="testimonial__photo" />
+                    <img src={ user1img } alt="" className="testimonial__photo" />
                     <h6 className="testimonial__name">Aarav Lynn</h6>
                     <p className="testimonial__location">San Francisco, USA</p>
                   </address>
@@ -42,7 +46,7 @@ export const Testimonials = () => {
                     I do before bed, organize next days tasks. Truly love it!
                   </blockquote>
                   <address className="testimonial__author">
-                    <img src="/src/assets/user-2.jpg" alt="" className="testimonial__photo" />
+                    <img src={ user2img } alt="" className="testimonial__photo" />
                     <h6 className="testimonial__name">Miyah Miles</h6>
                     <p className="testimonial__location">London, UK</p>
                   </address>
@@ -62,7 +66,7 @@ export const Testimonials = () => {
                     I recommend it to managers of small businesses - it can keep you from missing deadlines and due dates.
                   </blockquote>
                   <address className="testimonial__author">
-                    <img src="/src/assets/user-3.jpg" alt="" className="testimonial__photo" />
+                    <img src={ user3img } alt="" className="testimonial__photo" />
                     <h6 className="testimonial__name">Francisco Gomes</h6>
                     <p className="testimonial__location">Lisbon, Portugal</p>
                   </address>

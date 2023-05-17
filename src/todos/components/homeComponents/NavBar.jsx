@@ -1,7 +1,7 @@
 // import { Link } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useSignStore } from "../../../hooks/useSignStore";
-
+import logoImg from '/src/assets/logo.png'
 
 export const NavBar = () => {
 
@@ -10,7 +10,7 @@ export const NavBar = () => {
   return (
     <nav className="nav fixed-top text-bg-light">
         <img
-          src="/src/assets/logo.png"
+          src={ logoImg }
           alt="Bankist logo"
           className="nav__logo"
           id="logo"
