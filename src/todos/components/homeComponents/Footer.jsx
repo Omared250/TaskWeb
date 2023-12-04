@@ -17,7 +17,7 @@ export const Footer = () => {
               </h3>
             </div>
             <Link to="/register" >
-              <button className="btn btn--show-modal" value='Sign Up' onClick={ (ev) => openModal( ev.target.value ) }>Open your free account today!</button>
+              <button className=" btn--show-modal" value='Sign Up' onClick={ (ev) => openModal( ev.target.value ) }>Open your free account today!</button>
             </Link>
         </section>
         <footer className="footer">
