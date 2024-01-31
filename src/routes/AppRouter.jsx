@@ -7,20 +7,20 @@ import { PublicRoutes } from "./PublicRoutes";
 
 export const AppRouter = () => {
 
-    // const { status, checkAuthToken } = useAuthStore();
-    const status = 'authenticated'; // 'authenticated'; // 'not-authenticated';
+    const { status, checkAuthToken } = useAuthStore();
+    // const status = 'authenticated'; // 'authenticated'; // 'not-authenticated';
 
-    // useEffect(() => {
-    //     checkAuthToken();
-    // }, [])
+    useEffect(() => {
+        checkAuthToken();
+    }, [])
     
 
 
-    // if ( status === 'checking' ) {
-    //     return (
-    //         <h3>Cargando...</h3>
-    //     )
-    // }
+    if ( status === 'checking' ) {
+        return (
+            <h3>Cargando...</h3>
+        )
+    }
 
 
     return(
