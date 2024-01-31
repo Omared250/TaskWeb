@@ -36,7 +36,7 @@ export const FloattingActionAddButton = () => {
             }}
             onClick={ handleClickNew }
         >
-        <AddOutlined sx={{ fontSize: 30 }}/>
+        <AddOutlined sx={{ fontSize: 30, }} />
     </IconButton>
     )
 }

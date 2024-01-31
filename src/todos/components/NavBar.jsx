@@ -1,4 +1,4 @@
-import { LogoutOutlined, MenuOutlined } from "@mui/icons-material";
+import { CalendarMonthOutlined, LogoutOutlined, MenuOutlined } from "@mui/icons-material";
 import { AppBar, Grid, IconButton, Toolbar, Typography } from "@mui/material";
 import { useAuthStore } from "../../hooks";
 
@@ -16,20 +16,15 @@ export const NavBar = ({ drawerWidth = 240 }) => {
              }}
         >
             <Toolbar>
-                <IconButton
-                    color='inherit'
-                    edge='start'
-                    sx={{ mr: 2, display: { sm: 'none' } }}
-                >
-                    <MenuOutlined />
-                </IconButton>
-
                 <Grid container
                     direction='row'
                     justifyContent='space-between'
                     alignItems='center'
                 >
-                    <Typography variant='h6' noWrap component='div'>To Do</Typography>
+                    <Typography variant='h6' noWrap component='div' sx={{fontSize: '20px' }}>
+                        <CalendarMonthOutlined  sx={{ m: '0.2em', fontSize: '2em' }}/>
+                        Calendar Tasks
+                    </Typography>
 
                     <IconButton color='inherit' onClick={ startLogout } >
                         <LogoutOutlined />

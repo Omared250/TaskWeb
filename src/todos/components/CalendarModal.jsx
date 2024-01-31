@@ -18,7 +18,7 @@ const customStyles = {
       right: 'auto',
       bottom: 'auto',
       marginRight: '-50%',
-      transform: 'translate(-25%, -50%)',
+      transform: 'translate(-50%, -50%)',
     },
 };
 
@@ -104,8 +104,7 @@ export const CalendarModal = () => {
             overlayClassName="modal-fondo"
             closeTimeoutMS={ 200 }
         >
-            <h1> New Event </h1>
-            <hr />
+            <h1 className="modal-title"> Create New Event </h1>
             <form className="container" onSubmit={ onSubmit }>
 
                 <div className="form-group mb-2">
@@ -161,7 +160,7 @@ export const CalendarModal = () => {
 
                 <button
                     type="submit"
-                    className="btn btn-outline-primary btn-block"
+                    className="button-29"
                 >
                     <SaveOutlined fontSize="large" sx={{ mr: 1 }}></SaveOutlined>
                     <span>Save</span>
