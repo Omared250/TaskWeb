@@ -29,14 +29,9 @@ export const ModalLayout = ({ children, title='' }) => {
       >
           <button className="btn--close-modal" onClick={ closeModal }>&times;</button>
           <h2 className="modal__header">
-            Open your Task account <br /> 
             { title === 'Sign Up'
-                ? 'In just '
-                : ''
-            }
-            { title === 'Sign Up'
-              ? <span className="highlight">1 minute</span>
-              : ''
+              ? <>Create your<span className="highlight">Task account</span>in just <span className="highlight">1 minute</span></>
+              : <>Open your <span className="highlight">Task account</span></>
             }
           </h2>
           { children }
