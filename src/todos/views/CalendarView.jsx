@@ -15,12 +15,13 @@ export const CalendarView = () => {
 
     const [ lastView, setLastView ] = useState( localStorage.getItem('lastView') || 'month' )
 
+    // Filter the events to include only those belonging to the logged-in user
+    const myEvents = events.filter(event => (user.uid === event.user._id) || (user.uid === event.user.uid));
+
     const eventStyleGetter = ( event, start, end, isSelected ) => {
 
-        const isMyEvent = ( user.uid === event.user._id ) || ( user.uid === event.user.uid );
-
         const style = {
-            backgroundColor: isMyEvent ? '#347CF7' : '#FC5834',
+            backgroundColor: '#347CF7',
             borderRadius: '0px',
             opacity: 0.8,
             color: 'white'        
@@ -53,7 +54,7 @@ export const CalendarView = () => {
         <>
             <Calendar
                 localizer={ localizer }
-                events={ events }
+                events={ myEvents }
                 defaultView={ lastView }
                 startAccessor="start"
                 endAccessor="end"
