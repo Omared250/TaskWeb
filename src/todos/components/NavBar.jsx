@@ -14,6 +14,8 @@ export const NavBar = ({ drawerWidth = 240 }) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
+        ml: { sm: `${drawerWidth}px` },
+        fontSize: 'large'
       }}
     >
       <Toolbar sx={{ width: "98%", maxWidth: "1440px" }}>

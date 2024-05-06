@@ -11,6 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
 import { AddCircle, Assignment, CalendarMonthOutlined, HouseOutlined, TaskAltOutlined } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import { useAuthStore } from '../../hooks';
 
 export const TemporaryDrawer = () => {
   // const dispatch = useDispatch();
@@ -20,6 +21,9 @@ export const TemporaryDrawer = () => {
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
+
+  // User name
+  const { user } = useAuthStore();
 
   // Function to update the selected menu item and save to localStorage
   const handleListItemClick = (menuValue) => {
@@ -66,11 +70,11 @@ export const TemporaryDrawer = () => {
 
   return (
     <div>
-      <Button onClick={toggleDrawer(true)} style={{ color: 'white' }}>Menu</Button>
-      <Drawer open={open} onClose={toggleDrawer(false)}>
+      <Button onClick={toggleDrawer(true)} style={{ color: 'white', fontSize: 'small' }}>Menu</Button>
+      <Drawer open={open} onClose={toggleDrawer(false)} sx={{ fontSize: 'large' }}>
         <div className='profile'>
           <Avatar src="/broken-image.jpg" />
-          <span>Omar Ascanio</span>
+          <span>{user.name}</span>
         </div>
         <Divider />
         {DrawerList}
