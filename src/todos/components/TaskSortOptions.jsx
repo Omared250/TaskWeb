@@ -54,7 +54,7 @@ export const TaskSortOptions = ({ onSort }) => {
           }}
         >
           {options.map((option) => (
-            <MenuItem key={option} selected={option === 'Pyxis'} onClick={() => handleMenuItemClick(option)}>
+            <MenuItem key={option} selected={option === 'Pyxis'} onClick={() => handleMenuItemClick(option)} sx={{ fontSize: 'medium'}}>
               {option}
             </MenuItem>
           ))}

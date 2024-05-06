@@ -65,6 +65,7 @@ export const CompletedTasksOptions = ({ onTaskId }) => {
             key={option}
             selected={option === "Pyxis"}
             onClick={() => handleMenuItemClick(option)}
+            sx={{fontSize: 'medium'}}
           >
             {option === 'Retake Task' ? <Undo sx={{m: '.3em'}}/> : <Delete sx={{m: '.3em', color: 'red'}}/>}
             <span >{option}</span>

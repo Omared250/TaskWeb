@@ -8,6 +8,7 @@ export const PrivateRoutes = () => {
         <Routes>
             <Route path="/calendar" element={<TodoPage view="calendar" />} />
             <Route path="/tasks" element={<TodoPage view="tasks" />} />
+            <Route path="/completedtasks" element={<TodoPage view="completedtasks" />} />
             <Route path="/*" element={ <Navigate to="/calendar" /> } />
         </Routes>
     )

@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { useTasksStore } from "../../hooks/useTasksStore";
 import { TaskAltOutlined } from "@mui/icons-material";
 import { TaskSortOptions } from "../components/TaskSortOptions";
-import { CompletedTasksOptions } from "../CompletedTasksOptions";
+import { CompletedTasksOptions } from "../components/CompletedTasksOptions";
 
 export const CompletedTaskView = () => {
   // Get Task access from state
@@ -11,7 +11,7 @@ export const CompletedTaskView = () => {
   return (
     <Box className="task-view">
       <div className="task_sort__options">
-        <h1>Completed Tasks</h1>
+        <h1 style={{ fontSize: '40px'}}>Completed Tasks</h1>
         <TaskSortOptions onSort={sortCompletedTasks} />
       </div>
       <table className="table_tasks__completed">
