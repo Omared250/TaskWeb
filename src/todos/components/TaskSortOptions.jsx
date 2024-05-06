@@ -27,7 +27,7 @@ export const TaskSortOptions = ({ onSort }) => {
     };
   
     return (
-      <div>
+      <div style={{ fontSize: '25px'}}>
         <IconButton
           aria-label="more"
           id="long-button"

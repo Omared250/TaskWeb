@@ -96,7 +96,7 @@ export const TaskView = () => {
   return (
     <div className="task-view">
       <div className="task_sort__options">
-        <h1>Tasks</h1>
+        <h1 style={{fontSize: '40px'}}>Tasks</h1>
         <TaskSortOptions onSort={sortUncompletedTasks} />
       </div>
       <Task tasks={tasks.uncompletedTasks} onDelete={deleteTask} onEdit={ handleEditTask }/>
