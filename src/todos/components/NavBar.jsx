@@ -27,7 +27,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
         >
           <TemporaryDrawer />
           <IconButton color="inherit" onClick={startLogout} >
-            <LogoutOutlined size="large" />
+            <LogoutOutlined />
           </IconButton>
         </Grid>
       </Toolbar>
