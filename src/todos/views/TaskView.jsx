@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Divider from "@mui/material/Divider";
 import { AddOutlined } from "@mui/icons-material";
 import { useTasksStore } from "../../hooks/useTasksStore";
-import { useUiStore } from "../../hooks/useUiStore";
+import { useUiStore } from "../../hooks";
 import { validateForm } from "../../helpers/validateForm";
 import { modalAlert } from "../../helpers/modalAlert";
 import { Task } from "../Task";
