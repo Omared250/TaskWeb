@@ -9,7 +9,8 @@ export const store = configureStore({
         auth: authSlice.reducer,
         ui: uiSlice.reducer,
         calendar: calendarSlice.reducer,
-        sign: signSlice.reducer
+        sign: signSlice.reducer,
+        tasks: taskSlice.reducer,
     },
     middleware: ( getDefaultMiddleware ) => getDefaultMiddleware({
         serializableCheck: false
