@@ -1,37 +1,34 @@
-import { CalendarMonthOutlined, LogoutOutlined, MenuOutlined } from "@mui/icons-material";
-import { AppBar, Grid, IconButton, Toolbar, Typography } from "@mui/material";
+import { LogoutOutlined } from "@mui/icons-material";
+import { AppBar, Grid, IconButton, Toolbar } from "@mui/material";
 import { useAuthStore } from "../../hooks";
-
+import { TemporaryDrawer } from "./TemporaryDrawer";
 
 export const NavBar = ({ drawerWidth = 240 }) => {
+  const { startLogout } = useAuthStore();
 
-    const { startLogout } = useAuthStore();
-
-    return (
-        <AppBar position="fixed"
-            sx={{ 
-                width: { sm: `calc(100% - ${ drawerWidth }px)` },
-                ml: { sm: `${ drawerWidth }px` },
-                fontSize: 'large'
-             }}
+  return (
+    <AppBar
+      position="fixed"
+      sx={{
+        backgroundColor: "#6096B4",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <Toolbar sx={{ width: "98%", maxWidth: "1440px" }}>
+        <Grid
+          container
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
         >
-            <Toolbar>
-                <Grid container
-                    direction='row'
-                    justifyContent='space-between'
-                    alignItems='center'
-                >
-                    <Typography variant='h6' noWrap component='div' sx={{fontSize: '20px' }}>
-                        <CalendarMonthOutlined  sx={{ m: '0.2em', fontSize: '2em' }}/>
-                        Calendar Tasks
-                    </Typography>
-
-                    <IconButton color='inherit' onClick={ startLogout } >
-                        <LogoutOutlined />
-                    </IconButton>
-                </Grid>
-
-            </Toolbar>
-        </AppBar>
-    );
-}
+          <TemporaryDrawer />
+          <IconButton color="inherit" onClick={startLogout} >
+            <LogoutOutlined size="large" />
+          </IconButton>
+        </Grid>
+      </Toolbar>
+    </AppBar>
+  );
+};
