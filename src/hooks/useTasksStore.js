@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { addTask, updateTask, deleteTask, setSortedUncompletedTasks, setSortedCompletedTasks, taskCompletion, retakeTask } from '../store/task/taskSlice';
+import { addTask, deleteTask, retakeTask, setSortedCompletedTasks, setSortedUncompletedTasks, taskCompletion, updateTask } from '../store/task/taskSlice';
 import { modalAlert } from '../helpers/modalAlert';
+
 
 export const useTasksStore = () => {
     const dispatch = useDispatch();

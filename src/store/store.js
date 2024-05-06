@@ -3,6 +3,7 @@ import { uiSlice } from "./ui/uiSlice";
 import { calendarSlice } from "./calendar/calendarSlice";
 import { authSlice } from "./auth/authSlice";
 import { signSlice } from "./sign/signSlice";
+import { taskSlice } from "./task/taskSlice";
 
 export const store = configureStore({
     reducer: {
