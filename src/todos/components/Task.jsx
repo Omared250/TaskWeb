@@ -1,8 +1,8 @@
 import { Edit, EventAvailable } from "@mui/icons-material";
-import { getPriorityClassName } from "../helpers/getPriorityClassName";
 import { Checkbox, IconButton } from "@mui/material";
+import { getPriorityClassName } from "../../helpers/getPriorityClassName";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { useTasksStore } from "../hooks/useTasksStore";
+import { useTasksStore } from "../../hooks/useTasksStore";
 
 export const Task = ({ tasks, onDelete, onEdit, }) => {
 

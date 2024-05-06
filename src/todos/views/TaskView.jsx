@@ -5,8 +5,8 @@ import { useTasksStore } from "../../hooks/useTasksStore";
 import { useUiStore } from "../../hooks";
 import { validateForm } from "../../helpers/validateForm";
 import { modalAlert } from "../../helpers/modalAlert";
-import { Task } from "../Task";
-import { TaskSortOptions } from "../TaskSortOptions";
+import { Task } from "../components/Task";
+import { TaskSortOptions } from "../components/TaskSortOptions";
 
 export const TaskView = () => {
   // Extracting tasks state and methods from hook
