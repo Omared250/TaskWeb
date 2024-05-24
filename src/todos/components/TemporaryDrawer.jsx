@@ -52,7 +52,7 @@ export const TemporaryDrawer = () => {
           </ListItem>
         ))}
       </List>
-      <Divider />
+      {/* <Divider />
       <List>
         {['Projects', 'Add new project'].map((text, index) => (
           <ListItem key={text} disablePadding>
@@ -64,7 +64,7 @@ export const TemporaryDrawer = () => {
             </ListItemButton>
           </ListItem>
         ))}
-      </List>
+      </List> */}
     </Box>
   );
 
