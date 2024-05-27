@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { addTask, deleteTask, retakeTask, setSortedCompletedTasks, setSortedUncompletedTasks, taskCompletion, updateTask } from '../store/task/taskSlice';
 import { modalAlert } from '../helpers/modalAlert';
+import { v4 as uuidv4 } from "uuid";
+import { api } from '../api';
 
 
 export const useTasksStore = () => {
@@ -15,8 +17,24 @@ export const useTasksStore = () => {
         return priorityLevels[b.priority] - priorityLevels[a.priority];
     };
 
-    const createTask = (task) => {
-        dispatch(addTask(task));
+    const createTask = async( task ) => {
+
+        try {
+
+            // if ( calendarEvent.id ) {
+            //     // Updating
+            //     await calendarApi.put( `/events/${ calendarEvent.id }`, calendarEvent )
+            //     dispatch( onUpdateEvent({ ...calendarEvent, user }) );
+            //     return;
+    
+            // }
+    
+            // Creating
+            const { data } = await api.post( '/tasks/createTask', { id: uuidv4(), ...task } );
+            
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     const editTask = (task) => {

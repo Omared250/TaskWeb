@@ -5,11 +5,11 @@ import { getEnvVariables } from '../helpers';
 
 const { VITE_API_URL } = getEnvVariables()
 
-const calendarApi = axios.create({
+const api = axios.create({
     baseURL: VITE_API_URL
 });
 
-calendarApi.interceptors.request.use( config => {
+api.interceptors.request.use( config => {
 
     config.headers = {
         ...config.headers,
@@ -19,4 +19,4 @@ calendarApi.interceptors.request.use( config => {
     return config;
 });
 
-export default calendarApi;
+export default api;

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { calendarApi } from "../api";
+import { api } from "../api";
 import { clearErrorMessage, onChecking, onLogin, onLogout, onLogoutCalendar } from "../store";
 
 
@@ -13,7 +13,7 @@ export const useAuthStore = () => {
         dispatch( onChecking() );
         try {
 
-            const { data } = await calendarApi.post('/auth', { email, password })
+            const { data } = await api.post('/auth', { email, password })
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime());
             dispatch( onLogin({ name: data.name, uid: data.uid }) )
@@ -30,7 +30,7 @@ export const useAuthStore = () => {
 
         dispatch( onChecking() );
         try {
-            const { data } = await calendarApi.post('/auth/new', { email, password, name })
+            const { data } = await api.post('/auth/new', { email, password, name })
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime());
             dispatch( onLogin({ name: data.name, uid: data.uid }) )
@@ -49,7 +49,7 @@ export const useAuthStore = () => {
         if (!token) return dispatch( onLogout('Token expired') );
 
         try {
-            const { data } = await calendarApi.get('/auth/renew');
+            const { data } = await api.get('/auth/renew');
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime());
             dispatch( onLogin({ name: data.name, uid: data.uid }) )
