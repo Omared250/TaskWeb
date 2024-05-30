@@ -30,3 +30,13 @@ export const updateTask = async (task) => {
         throw err;
     }
 };
+
+export const deleteCurrentTask = async (id) => {
+    try {
+        const { data } = await api.delete(`/tasks/deleteTask/${id}`);
+        return data;
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
+}

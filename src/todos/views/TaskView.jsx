@@ -7,7 +7,7 @@ import { validateForm } from "../../helpers/validateForm";
 import { modalAlert } from "../../helpers/modalAlert";
 import { Task } from "../components/Task";
 import { TaskSortOptions } from "../components/TaskSortOptions";
-import { createNewTask, getUncompletedTasks, updateTask } from "../../api/taskApi";
+import { createNewTask, deleteCurrentTask, getUncompletedTasks, updateTask } from "../../api/taskApi";
 import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { format, parseISO } from "date-fns";
@@ -104,7 +104,7 @@ export const TaskView = () => {
 
   // Function to delete a task
   const deleteTask = (taskId) => {
-    removeTask(taskId);
+    deleteCurrentTask(taskId);
   };
 
   useEffect(() => {
