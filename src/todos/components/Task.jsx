@@ -3,9 +3,9 @@ import { Checkbox, IconButton } from "@mui/material";
 import { getPriorityClassName } from "../../helpers/getPriorityClassName";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useTasksStore } from "../../hooks/useTasksStore";
+import { format, parseISO } from "date-fns";
 
-export const Task = ({ tasks, onDelete, onEdit, }) => {
-
+export const Task = ({ tasks, onDelete, onEdit }) => {
   const { toggleTaskCompletion } = useTasksStore();
 
   return (
@@ -19,7 +19,7 @@ export const Task = ({ tasks, onDelete, onEdit, }) => {
                 id={task.id}
                 name="task"
                 value={task.title}
-                sx={{padding: 0}}
+                sx={{ padding: 0 }}
                 onChange={() => toggleTaskCompletion(task.id)}
               />
               <label htmlFor={task.id}>{task.title}</label>
@@ -27,8 +27,12 @@ export const Task = ({ tasks, onDelete, onEdit, }) => {
             <span className="task__description">{task.description}</span>
             <div className="task__date">
               <EventAvailable fontSize="smaller" sx={{ mr: 0.5, ml: 0.5 }} />
-              <span>{task.dateTime}</span>
-              <span className={`task__priority ${getPriorityClassName(task.priority)}`}>
+              <span>{new Date(task.dateTime).toLocaleDateString()}</span>
+              <span
+                className={`task__priority ${getPriorityClassName(
+                  task.priority
+                )}`}
+              >
                 {task.priority}
               </span>
             </div>

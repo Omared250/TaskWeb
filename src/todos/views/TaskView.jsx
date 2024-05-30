@@ -7,8 +7,14 @@ import { validateForm } from "../../helpers/validateForm";
 import { modalAlert } from "../../helpers/modalAlert";
 import { Task } from "../components/Task";
 import { TaskSortOptions } from "../components/TaskSortOptions";
+import { createNewTask, getUncompletedTasks, updateTask } from "../../api/taskApi";
+import { useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export const TaskView = () => {
+  // Tasks state
+  const [uncompletedTasks, setUncompletedTasks] = useState([]);
+
   // Extracting tasks state and methods from hook
   const { isTaskModalOpen, closeTaskModal, openTaskModal } = useUiStore();
 
@@ -50,7 +56,7 @@ export const TaskView = () => {
     openTaskModal();
   };
 
-  const saveTask = (e) => {
+  const saveTask = async (e) => {
     e.preventDefault();
 
     const { isValid, message } = validateForm(
@@ -69,14 +75,21 @@ export const TaskView = () => {
       return;
     }
 
+    const newTask = {id: uuidv4(), title, description, dateTime, priority, isCompleted: false, completedDate: null };
+
     // Add the new task to the task state
     if (isEditMode) {
-      editTask({ id: currentTaskId, title, description, dateTime, priority });
+      updateTask({ id: currentTaskId, title, description, dateTime, priority });
       setIsEditMode(false);
       setCurrentTaskId(null);
     } else {
-      createTask({ title, description, dateTime, priority, isCompleted: false, completedDate: null });
-    }
+      try {
+        await createNewTask(newTask);
+        setUncompletedTasks(prevTasks => [...prevTasks, newTask]);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
     closeTaskModal();
 
@@ -93,13 +106,25 @@ export const TaskView = () => {
     removeTask(taskId);
   };
 
+  useEffect(() => {
+    const fetchUncompletedTasks = async () => {
+      try {
+        const tasks = await getUncompletedTasks();
+        setUncompletedTasks(tasks);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchUncompletedTasks();
+  }, [])
+  
   return (
     <div className="task-view">
       <div className="task_sort__options">
         <h1 style={{fontSize: '40px'}}>Tasks</h1>
         <TaskSortOptions onSort={sortUncompletedTasks} />
       </div>
-      <Task tasks={tasks.uncompletedTasks} onDelete={deleteTask} onEdit={ handleEditTask }/>
+      <Task tasks={uncompletedTasks} onDelete={deleteTask} onEdit={ handleEditTask }/>
       <form className={isTaskModalOpen ? "task-form" : "toggle"}>
         <input
           type="text"
