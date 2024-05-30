@@ -23,9 +23,8 @@ export const createNewTask = async (task) => {
 
 export const updateTask = async (task) => {
     try {
-        console.log(task.id);
-        // const { data } = await api.post('/tasks/createTask', task);
-        // return data;
+        const { data } = await api.put(`/tasks/updateTask/${task.id}`, task);
+        return data;
     } catch (err) {
         console.error(err);
         throw err;

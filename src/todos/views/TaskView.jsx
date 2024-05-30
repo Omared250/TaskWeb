@@ -10,6 +10,7 @@ import { TaskSortOptions } from "../components/TaskSortOptions";
 import { createNewTask, getUncompletedTasks, updateTask } from "../../api/taskApi";
 import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { format, parseISO } from "date-fns";
 
 export const TaskView = () => {
   // Tasks state
@@ -49,7 +50,7 @@ export const TaskView = () => {
   const handleEditTask = (task) => {
     setTitle(task.title);
     setDescription(task.description);
-    setDateTime(task.dateTime);
+    setDateTime(format(parseISO(task.dateTime), 'yyyy-MM-dd'));
     setPriority(task.priority);
     setCurrentTaskId(task.id);
     setIsEditMode(true);
@@ -156,7 +157,7 @@ export const TaskView = () => {
               value={priority}
               onChange={(e) => setPriority(e.target.value)}
             >
-              <option value="" selected disabled>
+              <option value="" disabled>
                 Priority
               </option>
               <option value="Low">Low</option>
