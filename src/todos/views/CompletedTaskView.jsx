@@ -1,10 +1,11 @@
+import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { useTasksStore } from "../../hooks/useTasksStore";
 import { TaskAltOutlined } from "@mui/icons-material";
 import { TaskSortOptions } from "../components/TaskSortOptions";
 import { CompletedTasksOptions } from "../components/CompletedTasksOptions";
 import { deleteCurrentTask, getCompletedTasks, reactivateCompletedTask } from "../../api/taskApi";
-import { useEffect, useState } from "react";
+import { format, parseISO } from "date-fns";
 
 export const CompletedTaskView = () => {
   // Tasks state
@@ -63,7 +64,7 @@ export const CompletedTaskView = () => {
                 <span>{task.title}</span>
               </td>
               <td> {task.priority}</td>
-              <td>{task.completedDate}</td>
+              <td>{format(parseISO(task.completedDate), 'dd-MM-yyyy')}</td>
               <td>
                 <CompletedTasksOptions onTaskId={task.id} onHandleOptions={handleCompletedTaskOptions} />
               </td>

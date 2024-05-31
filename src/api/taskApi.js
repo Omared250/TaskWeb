@@ -66,7 +66,7 @@ export const completeTask = async (id, callback) => {
                     width: "18em",
                     background: "#d2ebf9"
                 });
-            }, 800);
+            }, 300);
         }
         return data;
     } catch (err) {
