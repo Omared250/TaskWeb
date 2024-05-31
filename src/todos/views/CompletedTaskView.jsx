@@ -12,7 +12,7 @@ export const CompletedTaskView = () => {
   const [completedTasks, setCompletedTasks] = useState([]);
 
   // Get Task access from state
-  const { tasks, sortCompletedTasks, reactiveTask } = useTasksStore();
+  // const { tasks, sortCompletedTasks, reactiveTask } = useTasksStore();
 
   const handleCompletedTaskOptions = (option, taskId) => {
     if (option === "Retake Task") {
@@ -27,6 +27,26 @@ export const CompletedTaskView = () => {
         prevTasks.filter((task) => task.id !== taskId)
       );
     }
+  };
+
+  const sortByCompletedDate = (a, b) => new Date(a.completedDate) - new Date(b.completedDate);
+
+  const sortByPriority = (a, b) => {
+      const priorityLevels = { Low: 1, Medium: 2, High: 3 };
+      return priorityLevels[b.priority] - priorityLevels[a.priority];
+  };
+
+  const sortCompletedTasks = (option) => {
+    let sortedUncompletedTasks;
+
+    if (option === 'Sort by Date') {
+        sortedUncompletedTasks = [...completedTasks].sort(sortByCompletedDate);
+    } else if (option === 'Sort by Priotity') {
+        sortedUncompletedTasks = [...completedTasks].sort(sortByPriority);
+    }
+
+    // Updating state with the sorted tasks
+    setCompletedTasks(sortedUncompletedTasks);
   };
 
   useEffect(() => {

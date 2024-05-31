@@ -20,7 +20,7 @@ export const TaskView = () => {
   const { isTaskModalOpen, closeTaskModal, openTaskModal } = useUiStore();
 
   // Use the useTaskStore hook instead of local state
-  const { sortUncompletedTasks } = useTasksStore();
+  // const { sortUncompletedTasks } = useTasksStore();
 
   // States to update task
   const [isEditMode, setIsEditMode] = useState(false);
@@ -116,6 +116,26 @@ export const TaskView = () => {
         prevTasks.filter((task) => task.id !== completedTaskId)
       );
     });
+  };
+
+  const sortByDate = (a, b) => new Date(a.dateTime) - new Date(b.dateTime);
+
+  const sortByPriority = (a, b) => {
+      const priorityLevels = { Low: 1, Medium: 2, High: 3 };
+      return priorityLevels[b.priority] - priorityLevels[a.priority];
+  };
+
+  const sortUncompletedTasks = (option) => {
+    let sortedUncompletedTasks;
+
+    if (option === 'Sort by Date') {
+        sortedUncompletedTasks = [...uncompletedTasks].sort(sortByDate);
+    } else if (option === 'Sort by Priotity') {
+        sortedUncompletedTasks = [...uncompletedTasks].sort(sortByPriority);
+    }
+
+    // Updating state with the sorted tasks
+    setUncompletedTasks(sortedUncompletedTasks);
   };
 
   useEffect(() => {
