@@ -13,7 +13,7 @@ export const getUncompletedTasks = async () => {
 
 export const createNewTask = async (task) => {
     try {
-        const { data } = await api.post('/tasks/createTask', task);
+        const { data } = await api.post('/tasks/createTask', task);        await getUncompletedTasks();
         return data;
     } catch (err) {
         console.error(err);

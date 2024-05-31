@@ -80,16 +80,18 @@ export const TaskView = () => {
 
     // Add the new task to the task state
     if (isEditMode) {
-      updateTask({ id: currentTaskId, title, description, dateTime, priority });
+      const updatedTask = { id: currentTaskId, title, description, dateTime, priority };
+      updateTask(updatedTask);
+      setUncompletedTasks((prevTasks) =>
+        prevTasks.map((task) =>
+          task.id === updatedTask.id ? updatedTask : task
+        )
+      );
       setIsEditMode(false);
       setCurrentTaskId(null);
     } else {
-      try {
-        await createNewTask(newTask);
-        setUncompletedTasks(prevTasks => [...prevTasks, newTask]);
-      } catch (error) {
-        console.error(error);
-      }
+      createNewTask(newTask);
+      setUncompletedTasks(prevTasks => [...prevTasks, newTask]);
     };
 
     closeTaskModal();
@@ -105,6 +107,7 @@ export const TaskView = () => {
   // Function to delete a task
   const deleteTask = (taskId) => {
     deleteCurrentTask(taskId);
+    setUncompletedTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
   };
 
   useEffect(() => {
