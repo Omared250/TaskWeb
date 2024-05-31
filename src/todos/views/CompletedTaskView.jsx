@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
-import { useTasksStore } from "../../hooks/useTasksStore";
 import { TaskAltOutlined } from "@mui/icons-material";
 import { TaskSortOptions } from "../components/TaskSortOptions";
 import { CompletedTasksOptions } from "../components/CompletedTasksOptions";
@@ -10,9 +9,6 @@ import { format, parseISO } from "date-fns";
 export const CompletedTaskView = () => {
   // Tasks state
   const [completedTasks, setCompletedTasks] = useState([]);
-
-  // Get Task access from state
-  // const { tasks, sortCompletedTasks, reactiveTask } = useTasksStore();
 
   const handleCompletedTaskOptions = (option, taskId) => {
     if (option === "Retake Task") {

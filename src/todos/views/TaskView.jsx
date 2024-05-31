@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Divider from "@mui/material/Divider";
 import { AddOutlined } from "@mui/icons-material";
-import { useTasksStore } from "../../hooks/useTasksStore";
 import { useUiStore } from "../../hooks";
 import { validateForm } from "../../helpers/validateForm";
 import { modalAlert } from "../../helpers/modalAlert";
@@ -18,9 +17,6 @@ export const TaskView = () => {
 
   // Extracting tasks state and methods from hook
   const { isTaskModalOpen, closeTaskModal, openTaskModal } = useUiStore();
-
-  // Use the useTaskStore hook instead of local state
-  // const { sortUncompletedTasks } = useTasksStore();
 
   // States to update task
   const [isEditMode, setIsEditMode] = useState(false);
