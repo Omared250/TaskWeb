@@ -74,3 +74,13 @@ export const completeTask = async (id, callback) => {
         throw err; 
     }
 };
+
+export const reactivateCompletedTask = async (id) => {
+    try {
+        const { data } = await api.patch(`/tasks/${id}/retake`);
+        return data;
+    } catch (err) {
+        console.error(err);
+        throw err; 
+    }
+};

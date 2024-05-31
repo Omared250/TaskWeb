@@ -817,7 +817,7 @@ font-weight: 400;
 
 .table_tasks__completed th {
   text-align: center; 
-  padding: 1.5em;
+  padding: .8em;
   background-color: #d9eefa;
   border: none;
 }

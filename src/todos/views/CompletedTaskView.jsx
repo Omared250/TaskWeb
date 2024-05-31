@@ -3,7 +3,7 @@ import { useTasksStore } from "../../hooks/useTasksStore";
 import { TaskAltOutlined } from "@mui/icons-material";
 import { TaskSortOptions } from "../components/TaskSortOptions";
 import { CompletedTasksOptions } from "../components/CompletedTasksOptions";
-import { getCompletedTasks } from "../../api/taskApi";
+import { deleteCurrentTask, getCompletedTasks, reactivateCompletedTask } from "../../api/taskApi";
 import { useEffect, useState } from "react";
 
 export const CompletedTaskView = () => {
@@ -11,7 +11,22 @@ export const CompletedTaskView = () => {
   const [completedTasks, setCompletedTasks] = useState([]);
 
   // Get Task access from state
-  const { tasks, sortCompletedTasks } = useTasksStore();
+  const { tasks, sortCompletedTasks, reactiveTask } = useTasksStore();
+
+  const handleCompletedTaskOptions = (option, taskId) => {
+    if (option === "Retake Task") {
+      reactivateCompletedTask(taskId);
+      setCompletedTasks((prevTasks) =>
+        prevTasks.filter((task) => task.id !== taskId)
+      );
+    }
+    if (option === "Delete Task") {
+      deleteCurrentTask(taskId);
+      setCompletedTasks((prevTasks) =>
+        prevTasks.filter((task) => task.id !== taskId)
+      );
+    }
+  };
 
   useEffect(() => {
     const fetchCompletedTasks = async () => {
@@ -23,12 +38,12 @@ export const CompletedTaskView = () => {
       }
     };
     fetchCompletedTasks();
-  }, [])
+  }, []);
 
   return (
     <Box className="task-view">
       <div className="task_sort__options">
-        <h1 style={{ fontSize: '40px'}}>Completed Tasks</h1>
+        <h1 style={{ fontSize: "40px" }}>Completed Tasks</h1>
         <TaskSortOptions onSort={sortCompletedTasks} />
       </div>
       <table className="table_tasks__completed">
@@ -49,7 +64,9 @@ export const CompletedTaskView = () => {
               </td>
               <td> {task.priority}</td>
               <td>{task.completedDate}</td>
-              <td><CompletedTasksOptions onTaskId={task.id}/></td>
+              <td>
+                <CompletedTasksOptions onTaskId={task.id} onHandleOptions={handleCompletedTaskOptions} />
+              </td>
             </tr>
           ))}
         </tbody>

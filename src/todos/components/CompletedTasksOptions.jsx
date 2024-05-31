@@ -10,7 +10,7 @@ const options = ["Retake Task", "Delete Task"];
 
 const ITEM_HEIGHT = 48;
 
-export const CompletedTasksOptions = ({ onTaskId }) => {
+export const CompletedTasksOptions = ({ onTaskId, onHandleOptions }) => {
 
     const { reactiveTask, removeTask } = useTasksStore();
 
@@ -24,12 +24,7 @@ export const CompletedTasksOptions = ({ onTaskId }) => {
   };
 
   const handleMenuItemClick = (option) => {
-    if (option === 'Retake Task') {
-        reactiveTask(onTaskId);
-    }
-    if (option === 'Delete Task') {
-        removeTask(onTaskId);
-    }
+    onHandleOptions(option, onTaskId)
     handleClose();
   };
 
