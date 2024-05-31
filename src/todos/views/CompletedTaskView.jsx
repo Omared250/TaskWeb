@@ -5,10 +5,14 @@ import { TaskSortOptions } from "../components/TaskSortOptions";
 import { CompletedTasksOptions } from "../components/CompletedTasksOptions";
 import { deleteCurrentTask, getCompletedTasks, reactivateCompletedTask } from "../../api/taskApi";
 import { format, parseISO } from "date-fns";
+import { useSelector } from "react-redux";
 
 export const CompletedTaskView = () => {
   // Tasks state
   const [completedTasks, setCompletedTasks] = useState([]);
+
+  // Curent user 
+  const { user } = useSelector( state => state.auth );
 
   const handleCompletedTaskOptions = (option, taskId) => {
     if (option === "Retake Task") {
@@ -48,7 +52,7 @@ export const CompletedTaskView = () => {
   useEffect(() => {
     const fetchCompletedTasks = async () => {
       try {
-        const tasks = await getCompletedTasks();
+        const tasks = await getCompletedTasks(user.uid);
         setCompletedTasks(tasks);
       } catch (err) {
         console.error(err);

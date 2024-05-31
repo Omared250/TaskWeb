@@ -10,10 +10,13 @@ import { completeTask, createNewTask, deleteCurrentTask, getUncompletedTasks, up
 import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { format, parseISO } from "date-fns";
+import { useSelector } from "react-redux";
 
 export const TaskView = () => {
   // Tasks state
   const [uncompletedTasks, setUncompletedTasks] = useState([]);
+
+  const { user } = useSelector( state => state.auth );
 
   // Extracting tasks state and methods from hook
   const { isTaskModalOpen, closeTaskModal, openTaskModal } = useUiStore();
@@ -86,7 +89,7 @@ export const TaskView = () => {
       setIsEditMode(false);
       setCurrentTaskId(null);
     } else {
-      createNewTask(newTask);
+      createNewTask(newTask, user);
       setUncompletedTasks(prevTasks => [...prevTasks, newTask]);
     };
 
@@ -137,7 +140,7 @@ export const TaskView = () => {
   useEffect(() => {
     const fetchUncompletedTasks = async () => {
       try {
-        const tasks = await getUncompletedTasks();
+        const tasks = await getUncompletedTasks(user.uid);
         setUncompletedTasks(tasks);
       } catch (err) {
         console.error(err);

@@ -2,9 +2,9 @@ import { modalAlert } from "../helpers/modalAlert";
 import api from "./api";
 
 
-export const getUncompletedTasks = async () => {
+export const getUncompletedTasks = async (userId) => {
     try {
-        const { data } = await api.get('/tasks/uncompleted');
+        const { data } = await api.get('/tasks/uncompleted', { params: {userId: userId} });
         return data.tasks;
     } catch (err) {
         console.error(err);
@@ -12,9 +12,9 @@ export const getUncompletedTasks = async () => {
     }
 };
 
-export const getCompletedTasks = async () => {
+export const getCompletedTasks = async (userId) => {
     try {
-        const { data } = await api.get('/tasks/completed');
+        const { data } = await api.get('/tasks/completed', { params: {userId: userId} });
         return data.tasks;
     } catch (err) {
         console.error(err);
@@ -22,9 +22,10 @@ export const getCompletedTasks = async () => {
     }
 };
 
-export const createNewTask = async (task) => {
+export const createNewTask = async (task, user) => {
     try {
-        const { data } = await api.post('/tasks/createTask', task);
+        const createdTask = {...task, userId: user.uid};
+        const { data } = await api.post('/tasks/createTask', createdTask);
         return data;
     } catch (err) {
         console.error(err);
@@ -33,6 +34,7 @@ export const createNewTask = async (task) => {
 };
 
 export const updateTask = async (task) => {
+    console.log(task);
     try {
         const { data } = await api.put(`/tasks/updateTask/${task.id}`, task);
         return data;
