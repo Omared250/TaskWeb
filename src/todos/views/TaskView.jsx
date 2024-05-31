@@ -7,7 +7,7 @@ import { validateForm } from "../../helpers/validateForm";
 import { modalAlert } from "../../helpers/modalAlert";
 import { Task } from "../components/Task";
 import { TaskSortOptions } from "../components/TaskSortOptions";
-import { createNewTask, deleteCurrentTask, getUncompletedTasks, updateTask } from "../../api/taskApi";
+import { completeTask, createNewTask, deleteCurrentTask, getUncompletedTasks, updateTask } from "../../api/taskApi";
 import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { format, parseISO } from "date-fns";
@@ -20,7 +20,7 @@ export const TaskView = () => {
   const { isTaskModalOpen, closeTaskModal, openTaskModal } = useUiStore();
 
   // Use the useTaskStore hook instead of local state
-  const { tasks, createTask, editTask, removeTask, sortUncompletedTasks } = useTasksStore();
+  const { sortUncompletedTasks } = useTasksStore();
 
   // States to update task
   const [isEditMode, setIsEditMode] = useState(false);
@@ -110,6 +110,14 @@ export const TaskView = () => {
     setUncompletedTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
   };
 
+  const handleTaskCompletion = (taskId) => {
+    completeTask(taskId, (completedTaskId) => {
+      setUncompletedTasks((prevTasks) =>
+        prevTasks.filter((task) => task.id !== completedTaskId)
+      );
+    });
+  };
+
   useEffect(() => {
     const fetchUncompletedTasks = async () => {
       try {
@@ -128,7 +136,7 @@ export const TaskView = () => {
         <h1 style={{fontSize: '40px'}}>Tasks</h1>
         <TaskSortOptions onSort={sortUncompletedTasks} />
       </div>
-      <Task tasks={uncompletedTasks} onDelete={deleteTask} onEdit={ handleEditTask }/>
+      <Task tasks={uncompletedTasks} onDelete={deleteTask} onEdit={ handleEditTask } onCompleteTask={handleTaskCompletion}/>
       <form className={isTaskModalOpen ? "task-form" : "toggle"}>
         <input
           type="text"

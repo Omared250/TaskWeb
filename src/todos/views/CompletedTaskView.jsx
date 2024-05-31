@@ -3,10 +3,27 @@ import { useTasksStore } from "../../hooks/useTasksStore";
 import { TaskAltOutlined } from "@mui/icons-material";
 import { TaskSortOptions } from "../components/TaskSortOptions";
 import { CompletedTasksOptions } from "../components/CompletedTasksOptions";
+import { getCompletedTasks } from "../../api/taskApi";
+import { useEffect, useState } from "react";
 
 export const CompletedTaskView = () => {
+  // Tasks state
+  const [completedTasks, setCompletedTasks] = useState([]);
+
   // Get Task access from state
   const { tasks, sortCompletedTasks } = useTasksStore();
+
+  useEffect(() => {
+    const fetchCompletedTasks = async () => {
+      try {
+        const tasks = await getCompletedTasks();
+        setCompletedTasks(tasks);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchCompletedTasks();
+  }, [])
 
   return (
     <Box className="task-view">
@@ -24,7 +41,7 @@ export const CompletedTaskView = () => {
           </tr>
         </thead>
         <tbody>
-          {tasks.completedTasks.map((task) => (
+          {completedTasks.map((task) => (
             <tr key={task.id} className="task_completed">
               <td className="first_column_task__completed">
                 <TaskAltOutlined color="success" />

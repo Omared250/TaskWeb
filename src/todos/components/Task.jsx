@@ -2,11 +2,8 @@ import { Edit, EventAvailable } from "@mui/icons-material";
 import { Checkbox, IconButton } from "@mui/material";
 import { getPriorityClassName } from "../../helpers/getPriorityClassName";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { useTasksStore } from "../../hooks/useTasksStore";
-import { format, parseISO } from "date-fns";
 
-export const Task = ({ tasks, onDelete, onEdit }) => {
-  const { toggleTaskCompletion } = useTasksStore();
+export const Task = ({ tasks, onDelete, onEdit, onCompleteTask }) => {
 
   return (
     <>
@@ -20,7 +17,7 @@ export const Task = ({ tasks, onDelete, onEdit }) => {
                 name="task"
                 value={task.title}
                 sx={{ padding: 0 }}
-                onChange={() => toggleTaskCompletion(task.id)}
+                onChange={() => onCompleteTask(task.id)}
               />
               <label htmlFor={task.id}>{task.title}</label>
             </div>
