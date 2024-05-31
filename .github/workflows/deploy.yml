@@ -31,6 +31,7 @@ jobs:
         ssh -o StrictHostKeyChecking=no -l ec2-user ${{ secrets.EC2_HOST }} <<-EOF
           cd /home/ec2-user/TaskWeb
           git pull
+          npm i
           npm run build
           sudo cp -r dist /var/www/TaskWeb/
           sudo systemctl restart nginx.service
